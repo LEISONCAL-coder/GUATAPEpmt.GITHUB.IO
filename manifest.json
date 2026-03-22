@@ -1,0 +1,21 @@
+{
+  "name": "Auditoría PMT - Guatapé",
+  "short_name": "PMT Guatapé",
+  "description": "Acta de Inspección Técnica para Plan de Manejo de Tránsito",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f7f8",
+  "theme_color": "#002855",
+  "icons": [
+    {
+      "src": "./logo_entidad.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./logo_gsc.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
