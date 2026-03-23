@@ -7,12 +7,12 @@
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>AUDITORÍA PMT - MÓVIL Y ESCRITORIO</title>
+    <title>AUDITORÍA TÉCNICA Y AMBIENTAL PRO - VÍA GUATAPÉ</title>
     <style>
         :root { 
-            --primary: #002855; /* Azul institucional Interventoría */
-            --secondary: #FF6600; /* Naranja Tránsito PMT */
-            --accent: #d4af37;
+            --primary: #002855; /* Azul institucional */
+            --secondary: #FF6600; /* Naranja acento */
+            --accent: #d4af37; /* Dorado/Amarillo */
             --border: #b0bec5;
             --bg-light: #f5f7f8;
         }
@@ -21,7 +21,7 @@
             background: #e0e0e0; 
             margin: 0; 
             padding: 10px; 
-            font-size: 14px;
+            font-size: 11.5px;
             color: #263238;
             -webkit-text-size-adjust: 100%;
         }
@@ -30,76 +30,61 @@
             background: #ffffff; 
             max-width: 1100px; 
             margin: 0 auto; 
-            padding: 20px; 
+            padding: 20px 30px; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
             border-top: 10px solid var(--secondary);
             border-radius: 8px;
         }
 
-        /* ESTRUCTURA PARA IMPRESIÓN CON MEMBRETE REPETITIVO */
         .print-wrapper { width: 100%; border-collapse: collapse; }
         .print-wrapper > thead { display: table-header-group; }
         .print-wrapper > tbody { display: table-row-group; }
         
-        /* ENCABEZADO Y LOGOS */
         .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-            gap: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 3px solid var(--primary); padding-bottom: 15px; margin-bottom: 15px; gap: 10px;
         }
+        
+        /* Modificado: Sin bordes ni fondos para un estilo más limpio */
         .logo-box {
-            width: 110px;
-            height: 80px;
-            border: 2px dashed #90a4ae;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #78909c;
-            font-size: 11px;
-            text-align: center;
-            background: var(--bg-light);
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-            cursor: pointer;
+            width: 110px; height: 80px; border: none; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+            color: #78909c; font-size: 11px; text-align: center; background: transparent;
+            position: relative; overflow: hidden; flex-shrink: 0;
         }
         .logo-box img { max-width: 100%; max-height: 100%; display: none; object-fit: contain; }
         
         .header-title { text-align: center; flex-grow: 1; }
-        .header-title h1 { color: var(--primary); font-size: 18px; margin: 0 0 5px 0; text-transform: uppercase; }
-        .header-title h2 { color: #546e7a; font-size: 13px; margin: 0 0 3px 0; }
-        .header-title p { margin: 0; font-size: 12px; font-weight: bold; color: var(--secondary); }
+        .header-title h1 { color: var(--primary); font-size: 17px; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px;}
+        .header-title h2 { color: #546e7a; font-size: 12px; margin: 0 0 3px 0; }
+        .header-title p { margin: 0; font-size: 11px; font-weight: bold; color: var(--secondary); }
 
-        /* INFO DEL PROYECTO */
-        .info-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        .info-table td { border: 1px solid var(--border); padding: 10px; }
-        .info-table .bg-gray { background: var(--bg-light); font-weight: bold; color: var(--primary); width: 15%; font-size: 12px;}
-        .info-input { width: 100%; border: none; background: transparent; font-size: 14px; outline: none; font-family: inherit; -webkit-appearance: none; appearance: none; border-bottom: 1px dotted #ccc;}
+        .info-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .info-table td { border: 1px solid var(--border); padding: 8px; }
+        .info-table .bg-gray { background: var(--bg-light); font-weight: bold; color: var(--primary); width: 15%; font-size: 11px;}
+        .info-input { width: 100%; border: none; background: transparent; font-size: 12px; outline: none; font-family: inherit; -webkit-appearance: none; border-bottom: 1px dotted #ccc;}
 
-        /* TABLAS DE AUDITORÍA ESCRITORIO */
         .section-title { 
-            background: var(--primary); color: white; padding: 10px 15px; font-size: 14px; 
+            background: var(--primary); color: white; padding: 10px 15px; font-size: 13px; 
             margin-top: 25px; margin-bottom: 0; border-left: 6px solid var(--secondary);
             text-transform: uppercase; font-weight: bold; border-radius: 4px 4px 0 0;
+            page-break-after: avoid;
         }
         .audit-table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 10px; }
-        .audit-table th, .audit-table td { border: 1px solid var(--border); padding: 10px; vertical-align: top; }
-        .audit-table th { background: var(--bg-light); color: var(--primary); text-align: center; font-size: 12px; }
+        .audit-table tr { page-break-inside: avoid; }
+        .audit-table th, .audit-table td { border: 1px solid var(--border); padding: 8px; vertical-align: top; }
+        .audit-table th { background: var(--bg-light); color: var(--primary); text-align: center; font-size: 11px; }
         
-        .col-ficha { width: 8%; text-align: center; font-weight: bold; color: var(--secondary); }
+        .col-ficha { width: 7%; font-weight: bold; text-align: center; color: var(--secondary); font-size: 10px; }
         .col-req { width: 40%; }
-        .col-eval { width: 12%; text-align: center; }
-        .col-obs { width: 40%; }
+        .col-eval { width: 15%; text-align: center; }
+        .col-obs { width: 38%; }
 
-        /* SEMÁFORO Y CONTROLES (OPTIMIZADO iOS/ANDROID) */
+        .param-desc { font-size: 10.5px; color: #444; display: block; margin-top: 4px; line-height: 1.3;}
+        .tolerance { font-size: 10px; color: var(--accent); font-weight: bold; display: block; margin-top: 4px; background: #fff3e0; padding: 4px; border-radius: 4px; border-left: 3px solid var(--accent);}
+
         .status-select { 
-            width: 100%; padding: 12px 8px; font-weight: bold; text-align: center; 
+            width: 100%; padding: 10px 5px; font-weight: bold; text-align: center; 
             border: 1px solid #ccc; border-radius: 6px; cursor: pointer; font-size: 12px;
             background-color: #fff; -webkit-appearance: none; appearance: none;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -109,119 +94,75 @@
         .status-na { background-color: #eeeeee; color: #616161; }
 
         textarea { 
-            width: 100%; min-height: 70px; border: 1px solid var(--border); padding: 10px; 
-            box-sizing: border-box; resize: vertical; font-family: inherit; font-size: 13px;
-            background-color: #fff; border-radius: 6px; margin-bottom: 8px;
-            -webkit-appearance: none; appearance: none;
+            width: 100%; min-height: 50px; border: 1px solid var(--border); padding: 8px; 
+            box-sizing: border-box; resize: vertical; font-family: inherit; font-size: 11px;
+            background-color: #fff; border-radius: 6px; margin-bottom: 5px; -webkit-appearance: none;
         }
 
-        /* CARGA DE FOTOS */
         .upload-zone {
-            display: flex; align-items: center; justify-content: center;
-            background-color: #fff3e0; border: 2px dashed #ffb74d; border-radius: 6px;
-            padding: 10px; cursor: pointer; transition: 0.2s;
+            display: flex; align-items: center; justify-content: center; background-color: #fff3e0; 
+            border: 2px dashed #ffb74d; border-radius: 6px; padding: 10px; cursor: pointer; transition: 0.2s;
         }
-        .upload-zone span { color: #e65100; font-weight: bold; font-size: 13px; text-align: center;}
-        input[type="file"] { display: none; }
+        .upload-zone:hover { background-color: #ffe0b2; }
+        .upload-zone span { color: #e65100; font-weight: bold; font-size: 11px; text-align: center;}
         
-        .image-gallery { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-        .image-gallery img { 
-            width: calc(33.333% - 6px); height: 100px; border: 1px solid #cfd8dc; 
-            border-radius: 6px; object-fit: cover; cursor: pointer; 
-        }
+        .image-gallery { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .image-gallery img { width: calc(33.333% - 4px); height: 90px; border: 1px solid #cfd8dc; border-radius: 6px; object-fit: cover; cursor: pointer; }
 
-        /* BOTONES FLOTANTES */
         .fab-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
         .btn-action { 
             padding: 12px 20px; color: white; border: none; border-radius: 50px; 
-            cursor: pointer; font-weight: bold; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            -webkit-tap-highlight-color: transparent; transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; font-weight: bold; font-size: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            -webkit-tap-highlight-color: transparent; transition: transform 0.2s;
         }
-        .btn-action:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.4); }
-        .btn-action:active { transform: translateY(1px); box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .btn-action:hover { transform: translateY(-2px); }
         .btn-print { background: #2e7d32; }
+        .btn-clear { background: #d32f2f; }
 
         .signatures { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; page-break-inside: avoid; }
-        .sig-box { width: 45%; text-align: center; border-top: 1px solid #000; padding-top: 8px; font-size: 12px; font-weight: bold;}
-        .sig-box input { width: 90%; text-align: center; border: none; border-bottom: 1px dotted #999; margin-top: 4px; font-size: 12px;}
-        
-        .firma-img-container { width: 100%; height: 60px; border-bottom: 1px dotted #999; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 5px; }
-        .firma-img { max-height: 60px; max-width: 100%; object-fit: contain; display: none; }
-        .firma-controls { margin-top: 3px; display: flex; gap: 3px; justify-content: center; flex-wrap: wrap; margin-bottom: 5px;}
-        .btn-firma { background-color: #f8fafc; border: 1px solid #cbd5e1; color: var(--primary); padding: 3px 6px; font-size: 11px; border-radius: 4px; cursor: pointer; font-weight: bold; align-items: center; justify-content: center; display: flex;}
-        .hidden-file-input { width: 0.1px; height: 0.1px; opacity: 0; overflow: hidden; position: absolute; z-index: -1; }
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center; }
-        .modal-content { background: white; padding: 20px; border-radius: 8px; width: 95%; max-width: 500px; text-align: center; }
-        .signature-pad { border: 2px dashed #ccc; background-color: #fafafa; touch-action: none; width: 100%; height: 180px; border-radius: 4px; }
-        .modal-buttons { margin-top: 15px; display: flex; justify-content: center; gap: 10px; }
-        .modal-buttons button { padding: 8px 15px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .sig-box { width: 30%; text-align: center; border-top: 1px solid #000; padding-top: 8px; font-size: 11px; font-weight: bold;}
+        .sig-box input { width: 90%; text-align: center; border: none; border-bottom: 1px dotted #999; margin-top: 4px; font-size: 11px;}
 
-        /* ALERTA CRÍTICA PMT */
-        .alert-box { background: #ffebee; border: 2px dashed #d32f2f; padding: 15px; margin: 20px 0; border-radius: 6px; color: #b71c1c; font-size: 13px; text-align: center;}
-
-        /* ========================================================= */
-        /* ADAPTACIÓN MÓVIL (PANTALLAS PEQUEÑAS - CELULARES) */
-        /* ========================================================= */
         @media screen and (max-width: 768px) {
             body { padding: 5px; }
             .paper-container { padding: 15px 10px; border-top: 8px solid var(--secondary); }
-            
             .header-container { flex-wrap: wrap; justify-content: center; text-align: center; }
             .logo-box { width: 80px; height: 60px; }
             .header-title { width: 100%; order: -1; margin-bottom: 10px; }
-            .header-title h1 { font-size: 16px; }
-
-            .info-table, .info-table tbody, .info-table tr, .info-table td { display: block; width: 100%; }
-            .info-table td { border: none; padding: 5px 0; }
-            .info-table .bg-gray { background: transparent; padding-bottom: 2px; color: #555; }
-            .info-input { border-bottom: 1px solid #ccc; border-radius: 0; padding-bottom: 5px; margin-bottom: 10px; }
-
+            .header-title h1 { font-size: 15px; }
+            .info-table, .info-table tbody, .info-table tr, .info-table td { display: block; width: 100%; box-sizing: border-box;}
+            .info-table td { border: none; padding: 4px 0; }
+            .info-table .bg-gray { background: transparent; padding-bottom: 2px; color: #555; font-size: 10px;}
+            .info-input { border-bottom: 1px solid #ccc; border-radius: 0; padding-bottom: 4px; margin-bottom: 8px; width: 100%;}
             .print-wrapper, .print-wrapper > thead, .print-wrapper > tbody { display: block; width: 100%; }
             .audit-table, .audit-table tbody, .audit-table tr, .audit-table td { display: block; width: 100%; box-sizing: border-box; }
             .audit-table thead { display: none; } 
-            .audit-table tr { 
-                margin-bottom: 15px; border: 1px solid var(--border); 
-                border-radius: 8px; background: #fff; overflow: hidden;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            }
+            .audit-table tr { margin-bottom: 15px; border: 1px solid var(--border); border-radius: 8px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
             .audit-table td { border: none; border-bottom: 1px solid #eee; padding: 12px; }
             .audit-table td:last-child { border-bottom: none; }
-            
-            .audit-table td::before { 
-                content: attr(data-label); 
-                display: block; font-weight: bold; color: var(--primary); 
-                font-size: 12px; margin-bottom: 6px; text-transform: uppercase;
-            }
-            .image-gallery img { width: calc(50% - 4px); height: 120px; } 
-            
+            .audit-table td::before { content: attr(data-label); display: block; font-weight: bold; color: var(--primary); font-size: 10px; margin-bottom: 5px; text-transform: uppercase; }
+            .image-gallery img { width: calc(50% - 3px); height: 110px; }
             .signatures { flex-direction: column; gap: 40px; align-items: center; }
             .sig-box { width: 80%; }
         }
 
-        /* ========================================================= */
-        /* ESTILOS DE IMPRESIÓN (PDF) */
-        /* ========================================================= */
         @media print {
-            body { background: white; padding: 0; font-size: 11px; }
+            body { background: white; padding: 0; font-size: 9px; }
             .paper-container { box-shadow: none; border: none; padding: 0; max-width: 100%; width: 100%; }
             .no-print, .upload-zone, .fab-container { display: none !important; }
-            
             .print-wrapper { display: table; }
             .print-wrapper > thead { display: table-header-group; }
             .print-wrapper > tbody { display: table-row-group; }
             .audit-table { display: table; }
             .audit-table tbody { display: table-row-group; }
             .audit-table tr { display: table-row; margin: 0; border: none; box-shadow: none;}
-            .audit-table td, .audit-table th { display: table-cell; border: 1px solid #000; padding: 6px; }
-            .audit-table td::before { display: none; } 
-            
-            .col-ficha { width: 10%; } .col-req { width: 45%; } .col-eval { width: 15%; } .col-obs { width: 30%; }
-
-            textarea { border: none; background: transparent; resize: none; min-height: 25px; padding: 0; border-bottom: 1px dotted #ccc;}
-            .info-input { border-bottom: none; }
-            .status-select { border: none; background: transparent !important; color: #000 !important; font-weight: bold; padding: 0;}
-            .image-gallery img { border: 1px solid #000; height: 120px; width: auto; max-width: 48%; page-break-inside: avoid; }
-            
+            .audit-table td, .audit-table th { display: table-cell; border: 1px solid #000; padding: 5px; }
+            .audit-table td::before { display: none; }
+            .col-ficha { width: 7%; } .col-req { width: 42%; } .col-eval { width: 13%; } .col-obs { width: 38%; }
+            textarea { border: none; background: transparent; resize: none; min-height: 25px; padding: 0; font-size: 9px;}
+            .info-input { border-bottom: 1px dotted #ccc; font-size: 10px;}
+            .status-select { border: none; background: transparent !important; color: #000 !important; font-weight: bold; padding: 0; text-align: center; font-size: 9px;}
+            .image-gallery img { border: 1px solid #000; height: 100px; width: auto; max-width: 48%; page-break-inside: avoid; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
 
@@ -232,6 +173,18 @@
         .toast.success { background: #2e7d32; }
         .toast.error { background: #c62828; }
         .toast.info { background: #0288d1; }
+
+        /* FIRMAS Y MODAL */
+        .firma-img-container { width: 100%; height: 60px; border-bottom: 1px dotted #999; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 5px; }
+        .firma-img { max-height: 60px; max-width: 100%; object-fit: contain; display: none; }
+        .firma-controls { margin-top: 3px; display: flex; gap: 3px; justify-content: center; flex-wrap: wrap; margin-bottom: 5px;}
+        .btn-firma { background-color: #f8fafc; border: 1px solid #cbd5e1; color: var(--primary); padding: 3px 6px; font-size: 11px; border-radius: 4px; cursor: pointer; font-weight: bold; align-items: center; justify-content: center; display: flex;}
+        .hidden-file-input { width: 0.1px; height: 0.1px; opacity: 0; overflow: hidden; position: absolute; z-index: -1; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 20px; border-radius: 8px; width: 95%; max-width: 500px; text-align: center; }
+        .signature-pad { border: 2px dashed #ccc; background-color: #fafafa; touch-action: none; width: 100%; height: 180px; border-radius: 4px; }
+        .modal-buttons { margin-top: 15px; display: flex; justify-content: center; gap: 10px; }
+        .modal-buttons button { padding: 8px 15px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -250,13 +203,13 @@
 </div>
 
 <div class="fab-container no-print">
-    <button class="btn-action btn-print" onclick="window.print()">🖨️ Guardar PDF</button>
+    <button class="btn-action btn-print" onclick="window.print()">🖨️ Generar PDF</button>
     <button class="btn-action" style="background: #0288d1;" onclick="exportData('json')">💾 Guardar .json</button>
     <label class="btn-action" style="background: #e65100; cursor: pointer; text-align: center; display: inline-block;">
         📂 Cargar Datos
         <input type="file" accept=".json, .gsc" style="display: none;" onchange="importData(event)">
     </label>
-    <button class="btn-action" style="background: #d32f2f;" onclick="if(confirm('¿Borrar todo y reiniciar el acta?')) location.reload()">🗑️ Limpiar</button>
+    <button class="btn-action btn-clear" onclick="limpiarTodo()">🗑️ Limpiar</button>
 </div>
 
 <div class="paper-container">
@@ -265,23 +218,27 @@
             <tr>
                 <td>
                     <div class="header-container">
-                        <label class="logo-box" title="Toque para cargar logo Alcaldía">
-                            <span class="no-print" id="txt-logo1">+ Logo<br>Alcaldía</span>
-                            <img id="logo1" src="">
-                            <input type="file" accept="image/*" onchange="loadLogo(this, 'logo1', 'txt-logo1')">
-                        </label>
-                        
-                        <div class="header-title">
-                            <h1>AUDITORÍA EXCLUSIVA PMT</h1>
-                            <h2>Mejoramiento Vía Granada - Guatapé (Sect. La Sonadora - La Peña)</h2>
-                            <p>Control de Interventoría - Seguridad Vial</p>
+                        <div class="logo-box">
+                            <img id="logo1" src="logo_entidad.png" style="display:block; cursor:pointer;" title="Click para cambiar logo" onclick="this.nextElementSibling.querySelector('input').click()" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <label class="no-print" style="cursor:pointer; width:100%; height:100%; display:none; align-items:center; justify-content:center; flex-direction:column;">
+                                <span>+ Logo Alcaldía</span>
+                                <input type="file" accept="image/*" onchange="loadLogo(this, 'logo1')">
+                            </label>
                         </div>
                         
-                        <label class="logo-box" title="Toque para cargar logo Interventoría">
-                            <span class="no-print" id="txt-logo2">+ Logo<br>Interventoría</span>
-                            <img id="logo2" src="">
-                            <input type="file" accept="image/*" onchange="loadLogo(this, 'logo2', 'txt-logo2')">
-                        </label>
+                        <div class="header-title">
+                            <h1>ACTA DE AUDITORÍA Y CONTROL AMBIENTAL</h1>
+                            <h2>VÍA RURAL GRANADA - GUATAPÉ (SECTOR LA SONADORA Y LA PEÑA)</h2>
+                            <p>EVALUACIÓN PLAN DE ADAPTACIÓN A LA GUÍA AMBIENTAL (PAGA)</p>
+                        </div>
+                        
+                        <div class="logo-box">
+                            <img id="logo2" src="logo_gsc.png" style="display:block; cursor:pointer;" title="Click para cambiar logo" onclick="this.nextElementSibling.querySelector('input').click()" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <label class="no-print" style="cursor:pointer; width:100%; height:100%; display:none; align-items:center; justify-content:center; flex-direction:column;">
+                                <span>+ Logo Interventor</span>
+                                <input type="file" accept="image/*" onchange="loadLogo(this, 'logo2')">
+                            </label>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -292,187 +249,256 @@
                 <td>
                     <table class="info-table">
                         <tr>
-                            <td class="bg-gray">Firma Contratista:</td>
-                            <td><input type="text" class="info-input" placeholder="Nombre de la empresa constructora"></td>
-                            <td class="bg-gray">Fecha / Hora:</td>
+                            <td class="bg-gray">Contratista:</td>
+                            <td><input type="text" class="info-input" placeholder="Nombre/Razón Social"></td>
+                            <td class="bg-gray">Fecha de Auditoría:</td>
                             <td><input type="datetime-local" class="info-input" id="fecha-hoy"></td>
                         </tr>
                         <tr>
-                            <td class="bg-gray">Frente/Abscisa:</td>
-                            <td><input type="text" class="info-input" placeholder="Ej: K5+211 al K5+577" onblur="formatearAbscisa(this)"></td>
-                            <td class="bg-gray">Ing. Interventor:</td>
-                            <td><input type="text" class="info-input" placeholder="Nombre completo"></td>
+                            <td class="bg-gray">Abscisas/Tramo:</td>
+                            <td><input type="text" class="info-input" placeholder="Ej: K5+211 a K6+905" onblur="formatearAbscisa(this)"></td>
+                            <td class="bg-gray">Auditor / M.P:</td>
+                            <td><input type="text" class="info-input" placeholder="Nombre del Interventor"></td>
                         </tr>
                     </table>
 
-                    <div class="alert-box">
-                        <b>ALERTA DE SEGURIDAD VIAL:</b> El ancho de plataforma es de 5m. Si se están construyendo <b>rieles o placas huellas</b>, el acero de refuerzo obstaculiza toda la vía. <b>DEBE EXIGIRSE CIERRE TOTAL</b> y usar vía alterna por La Peña (8.5 km).
-                    </div>
-
-                    <div class="section-title">1. DISPOSITIVOS MANUALES Y PERSONAL (BANDEREROS)</div>
+                    <div class="section-title">1. GESTIÓN SOCIAL Y DOCUMENTAL (DAGA / PGS)</div>
                     <table class="audit-table">
-                        <thead>
-                            <tr>
-                                <th class="col-ficha">REF.</th>
-                                <th class="col-req">ESPECIFICACIÓN PMT A EVALUAR</th>
-                                <th class="col-eval">ESTADO</th>
-                                <th class="col-obs">HALLAZGOS Y FOTOS</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th class="col-ficha">FICHA</th><th class="col-req">REQUERIMIENTO PAGA AL DETALLE</th><th class="col-eval">ESTADO</th><th class="col-obs">REGISTRO Y EVIDENCIA FOTOGRÁFICA</th></tr></thead>
                         <tbody>
                             <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-7.4</td>
-                                <td data-label="Requisito:" class="col-req"><b>Dotación (Chaleco e Impermeable):</b> ¿Chaleco naranja reflectivo NTC-4739? En lluvia: ¿Impermeable amarillo con cinta reflectiva blanca horizontal de 15cm en el tórax?</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
+                                <td data-label="Ficha:" class="col-ficha">PGS-7.3-16</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Levantamiento Actas de Vecindad</b>
+                                    <span class="param-desc">Elaboración en el 100% de las infraestructuras, cercas, cultivos y servicios públicos aledaños ANTES de iniciar obras.</span>
+                                    <span class="tolerance">Tolerancia Cero: Debe incluir registro fotográfico/fílmico obligatorio y firma de interventoría.</span>
                                 </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
                                 <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Detalle el estado de la indumentaria..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-7.4</td>
-                                <td data-label="Requisito:" class="col-req"><b>Herramientas (Paletas y Radios):</b> ¿Uso de paletas PARE/SIGA (min. 45cm diámetro reflectivo Tipo IV) con soporte blanco de <b>mínimo 1.60m</b>? ¿Tienen Radios Bidireccionales?</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
+                                <td data-label="Ficha:" class="col-ficha">PGS-6.1-21</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Atención Comunitaria (PQRS)</b>
+                                    <span class="param-desc">Disponer de puntos de recepción de quejas. Tiempos de ley para dar respuesta a la comunidad y autoridades.</span>
+                                    <span class="tolerance">Plazos obligatorios: 15 días hábiles para quejas/reclamos, 10 días para solicitudes de información.</span>
                                 </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
                                 <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Verifique funcionamiento de radios y altura del soporte..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div class="section-title">2. SEÑALIZACIÓN VERTICAL (MATERIALES Y ANCLAJE)</div>
+                    <div class="section-title">2. MANEJO DE MATERIALES, CONCRETOS Y ESCOMBROS (PAC)</div>
                     <table class="audit-table">
-                        <thead>
-                            <tr>
-                                <th class="col-ficha">REF.</th>
-                                <th class="col-req">ESPECIFICACIÓN PMT A EVALUAR</th>
-                                <th class="col-eval">ESTADO</th>
-                                <th class="col-obs">HALLAZGOS Y FOTOS</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th class="col-ficha">FICHA</th><th class="col-req">REQUERIMIENTO PAGA AL DETALLE</th><th class="col-eval">ESTADO</th><th class="col-obs">REGISTRO Y EVIDENCIA FOTOGRÁFICA</th></tr></thead>
                         <tbody>
                             <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-7.1</td>
-                                <td data-label="Requisito:" class="col-req"><b>Postes y Materiales:</b> ¿Fondo naranja reflectivo? ¿Postes en perfil ángulo hierro 2"x2"x1/4" o tubo galvanizado 2" con tapas metálicas soldadas? (Prohibido hormigueo).</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
+                                <td data-label="Ficha:" class="col-ficha">PAC-2.1-04</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Acopios Temporales de Materiales Pétreos</b>
+                                    <span class="param-desc">Confinamiento de materiales, aislamiento del piso con estibas/plásticos y cobertura con lona/polietileno.</span>
+                                    <span class="tolerance">Restricción: Volumen acopiado en vía solo para 1 o 2 jornadas. Máximo 24h si está en espacio público.</span>
                                 </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
                                 <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Revise material, oxidación y presencia de tapas..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-7.1</td>
-                                <td data-label="Requisito:" class="col-req"><b>Anclaje Antirrobo:</b> ¿Están los postes anclados en <b>concreto de 14 MPa</b> con una longitud mínima de empotramiento de <b>50 cm</b>?</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
+                                <td data-label="Ficha:" class="col-ficha">PAC-2.1-04</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Preparación de Concretos (Placa Huella/Cunetas)</b>
+                                    <span class="param-desc">Diseño de formaletas herméticas. Evitar escurrimiento en la preparación in situ.</span>
+                                    <span class="tolerance">Prohibido tajantemente: Mezclar directamente sobre el suelo. Exigido uso de plataforma metálica o geotextil.</span>
                                 </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
                                 <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Compruebe la firmeza y anclaje al suelo..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Ficha:" class="col-ficha">PAC-2.4-07</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Transporte y Disposición de RCD (Escombros)</b>
+                                    <span class="param-desc">Vehículos con contenedor continuo sin roturas. Certificado de ZODME o empresa autorizada (Ej. ECORCD S.A.S).</span>
+                                    <span class="tolerance">Exigencia: La carpa debe sujetarse fijamente bajando al menos 30 cm desde el borde superior del platón.</span>
+                                </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
+                                <td data-label="Evidencias:" class="col-obs">
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div class="section-title">3. CANALIZACIÓN Y LOGÍSTICA DE CIERRES</div>
+                    <div class="section-title">3. PROTECCIÓN HÍDRICA Y RESIDUOS SÓLIDOS (PGH)</div>
                     <table class="audit-table">
-                        <thead>
-                            <tr>
-                                <th class="col-ficha">REF.</th>
-                                <th class="col-req">ESPECIFICACIÓN PMT A EVALUAR</th>
-                                <th class="col-eval">ESTADO</th>
-                                <th class="col-obs">HALLAZGOS Y FOTOS</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th class="col-ficha">FICHA</th><th class="col-req">REQUERIMIENTO PAGA AL DETALLE</th><th class="col-eval">ESTADO</th><th class="col-obs">REGISTRO Y EVIDENCIA FOTOGRÁFICA</th></tr></thead>
                         <tbody>
                             <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-7.3</td>
-                                <td data-label="Requisito:" class="col-req"><b>Dispositivos de Canalización:</b> ¿Se evidencian las cantidades mínimas en el frente: 44 Barreras Plásticas (Maletines), 42 Balizas y 2 Barricadas de listón?</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
+                                <td data-label="Ficha:" class="col-ficha">PGH-3.2-09</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Manejo de Aguas Residuales Domésticas</b>
+                                    <span class="param-desc">Instalación de unidades sanitarias con la Asociación Internacional de Sanidad Portátil (PSAI).</span>
+                                    <span class="tolerance">Relación estricta: 1 baño por cada 15 trabajadores, separados por sexo. Mantenimiento comprobable mínimo 2 veces semanales.</span>
                                 </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
                                 <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Indique faltantes de elementos de canalización..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-6.1</td>
-                                <td data-label="Requisito:" class="col-req"><b>Gestión de Carril (Muros/Alcantarillas):</b> En cierres parciales, ¿se garantiza un ancho libre mínimo de <b>2.50 metros</b> para el tránsito de vehículos, chivas y peatones?</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
+                                <td data-label="Ficha:" class="col-ficha">PAC-2.5-08</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Manejo de Residuos Peligrosos (RESPEL)</b>
+                                    <span class="param-desc">Aislamiento de filtros, aceites y estopas. Almacenamiento bajo techo sin contacto con el suelo.</span>
+                                    <span class="tolerance">Empaque: Bolsas rojas de polipropileno calibre > 1.8 mm, peso máx 8 kg. Retiro máximo cada 8 días.</span>
                                 </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
                                 <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Medir ancho de vía útil dejado por el contratista..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td data-label="Ficha:" class="col-ficha">PMT-6.1</td>
-                                <td data-label="Requisito:" class="col-req"><b>Desvíos por Cierre Total:</b> ¿Están ubicados los Pasacalles (Ej: "Vía cerrada a 12km usar vía Peñol - Santuario") y se dirige el tráfico correctamente a la ruta alterna?</td>
-                                <td data-label="Estado:" class="col-eval">
-                                    <select class="status-select" onchange="changeColor(this)">
-                                        <option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option>
-                                    </select>
-                                </td>
-                                <td data-label="Evidencias:" class="col-obs">
-                                    <textarea placeholder="Evaluación de señalización informativa a distancia..."></textarea>
-                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencia</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label>
-                                    <div class="image-gallery"></div>
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div class="signatures">
-                        <div class="sig-box">
-                            <div class="firma-img-container"><img id="firma-1" class="firma-img" src=""></div>
-                            <div class="firma-controls no-print">
-                                <button type="button" class="btn-firma" onclick="openSignaturePad('firma-1')">✍️</button>
-                                <input type="file" id="up-firma-1" accept="image/*" class="hidden-file-input" onchange="loadSignatureImg(event, 'firma-1')">
-                                <label class="btn-firma" for="up-firma-1" style="cursor:pointer; margin:0;">📁</label>
-                                <button type="button" class="btn-firma" onclick="clearSignature('firma-1')">❌</button>
-                            </div>
-                            Vo.Bo. INTERVENTORÍA PMT<br>
-                            <input type="text" placeholder="Nombre y Matrícula Profesional">
-                        </div>
-                        <div class="sig-box">
-                            <div class="firma-img-container"><img id="firma-2" class="firma-img" src=""></div>
-                            <div class="firma-controls no-print">
-                                <button type="button" class="btn-firma" onclick="openSignaturePad('firma-2')">✍️</button>
-                                <input type="file" id="up-firma-2" accept="image/*" class="hidden-file-input" onchange="loadSignatureImg(event, 'firma-2')">
-                                <label class="btn-firma" for="up-firma-2" style="cursor:pointer; margin:0;">📁</label>
-                                <button type="button" class="btn-firma" onclick="clearSignature('firma-2')">❌</button>
-                            </div>
-                            NOTIFICADO - RESIDENTE OBRA<br>
-                            <input type="text" placeholder="Nombre y Cédula">
-                        </div>
-                    </div>
+                    <div class="section-title">4. SEÑALIZACIÓN, MAQUINARIA Y CONTINGENCIAS (PMIT / PSST)</div>
+                    <table class="audit-table">
+                        <thead><tr><th class="col-ficha">FICHA</th><th class="col-req">REQUERIMIENTO PAGA AL DETALLE</th><th class="col-eval">ESTADO</th><th class="col-obs">REGISTRO Y EVIDENCIA FOTOGRÁFICA</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Ficha:" class="col-ficha">PAC-2.3-06</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Cerramientos y Plan de Manejo de Tránsito</b>
+                                    <span class="param-desc">Aislamiento perimetral completo del frente de obra y senderos peatonales mínimos de 1 metro.</span>
+                                    <span class="tolerance">Material: Cinta naranja mín. 12 cm de ancho (o malla), apoyada sobre parales de 1.20 m de alto, espaciados cada 3 a 5 metros.</span>
+                                </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
+                                <td data-label="Evidencias:" class="col-obs">
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Ficha:" class="col-ficha">PMIT-4.2-11</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Mantenimiento de Maquinaria y Vehículos</b>
+                                    <span class="param-desc">Vehículos con extintor multipropósito de 10 lb, equipo de carretera y alarmas de reversa activas.</span>
+                                    <span class="tolerance">Prohibición: Cero mtto. correctivo en la vía. El preventivo (cada 200h) debe usar material aislante sobre el suelo.</span>
+                                </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
+                                <td data-label="Evidencias:" class="col-obs">
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Ficha:" class="col-ficha">Plan Cont.<br>PBSE 6.1</td>
+                                <td data-label="Requisito:" class="col-req">
+                                    <b>Atención de Derrames, Flora y Primeros Auxilios</b>
+                                    <span class="param-desc">Protección de árboles (no hay permiso de tala). Botiquín equipado (tabla rígida, gasas, isodine, inmovilizadores).</span>
+                                    <span class="tolerance">Crítico: Kit de derrames debe contener ARENA (está expresamente prohibido usar aserrín) y barreras absorbentes.</span>
+                                </td>
+                                <td data-label="Estado:" class="col-eval"><select class="status-select" onchange="changeColor(this)"><option value="">--</option><option value="cumple">CUMPLE</option><option value="nocumple">NO CUMPLE</option><option value="na">N/A</option></select></td>
+                                <td data-label="Evidencias:" class="col-obs">
+                                    <textarea placeholder="Observaciones del hallazgo..."></textarea>
+                                    <label class="upload-zone no-print"><span>📸 Adjuntar Evidencias</span><input type="file" multiple accept="image/*" onchange="handleFiles(this)"></label><div class="image-gallery"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="section-title">5. FIRMAS:</div>
+                    <table class="audit-table signature-table" style="margin-bottom: 0;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 33.33%; padding: 0; vertical-align: bottom;">
+                                    <div class="sig-box" style="border-top: none; width: 100%; text-align: left; padding: 0; font-weight: normal;">
+                                        <div class="firma-img-container" style="height: 100px; border-bottom: none; margin-bottom: 0;">
+                                            <img id="firma-1" class="firma-img" src="">
+                                        </div>
+                                        <div style="padding: 0 10px 10px 10px;">
+                                            <div style="border-top: 1px solid #000; padding-top: 8px;">
+                                                <div class="firma-controls no-print" style="margin-bottom: 5px;">
+                                                    <button type="button" class="btn-firma" onclick="openSignaturePad('firma-1')">✍️</button>
+                                                    <input type="file" id="up-firma-1" accept="image/*" class="hidden-file-input" onchange="loadSignatureImg(event, 'firma-1')">
+                                                    <label class="btn-firma" for="up-firma-1" style="cursor:pointer; margin:0;">📁</label>
+                                                    <button type="button" class="btn-firma" onclick="clearSignature('firma-1')">❌</button>
+                                                </div>
+                                                <div style="color: #444; font-size: 11px;">
+                                                    Representante Del Contratista<br>
+                                                    <div style="display: flex; align-items: flex-end; margin-top: 8px;">
+                                                        <span style="margin-right: 5px; color: #444;">C.C</span>
+                                                        <input type="text" style="flex-grow: 1; border: none; border-bottom: 1px dotted #999; background: transparent; font-size: 11px; outline: none; padding: 0; width: auto; margin-top: 0; text-align: left;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 33.33%; padding: 0; vertical-align: bottom;">
+                                    <div class="sig-box" style="border-top: none; width: 100%; text-align: left; padding: 0; font-weight: normal;">
+                                        <div class="firma-img-container" style="height: 100px; border-bottom: none; margin-bottom: 0;">
+                                            <img id="firma-2" class="firma-img" src="">
+                                        </div>
+                                        <div style="padding: 0 10px 10px 10px;">
+                                            <div style="border-top: 1px solid #000; padding-top: 8px;">
+                                                <div class="firma-controls no-print" style="margin-bottom: 5px;">
+                                                    <button type="button" class="btn-firma" onclick="openSignaturePad('firma-2')">✍️</button>
+                                                    <input type="file" id="up-firma-2" accept="image/*" class="hidden-file-input" onchange="loadSignatureImg(event, 'firma-2')">
+                                                    <label class="btn-firma" for="up-firma-2" style="cursor:pointer; margin:0;">📁</label>
+                                                    <button type="button" class="btn-firma" onclick="clearSignature('firma-2')">❌</button>
+                                                </div>
+                                                <div style="color: #444; font-size: 11px;">
+                                                    Representante De La Interventoría<br>
+                                                    <div style="display: flex; align-items: flex-end; margin-top: 8px;">
+                                                        <span style="margin-right: 5px; color: #444;">C.C</span>
+                                                        <input type="text" style="flex-grow: 1; border: none; border-bottom: 1px dotted #999; background: transparent; font-size: 11px; outline: none; padding: 0; width: auto; margin-top: 0; text-align: left;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 33.33%; padding: 0; vertical-align: bottom;">
+                                    <div class="sig-box" style="border-top: none; width: 100%; text-align: left; padding: 0; font-weight: normal;">
+                                        <div class="firma-img-container" style="height: 100px; border-bottom: none; margin-bottom: 0;">
+                                            <img id="firma-3" class="firma-img" src="">
+                                        </div>
+                                        <div style="padding: 0 10px 10px 10px;">
+                                            <div style="border-top: 1px solid #000; padding-top: 8px;">
+                                                <div class="firma-controls no-print" style="margin-bottom: 5px;">
+                                                    <button type="button" class="btn-firma" onclick="openSignaturePad('firma-3')">✍️</button>
+                                                    <input type="file" id="up-firma-3" accept="image/*" class="hidden-file-input" onchange="loadSignatureImg(event, 'firma-3')">
+                                                    <label class="btn-firma" for="up-firma-3" style="cursor:pointer; margin:0;">📁</label>
+                                                    <button type="button" class="btn-firma" onclick="clearSignature('firma-3')">❌</button>
+                                                </div>
+                                                <div style="color: #444; font-size: 11px;">
+                                                    Responsable De Administración Municipal<br>
+                                                    <div style="display: flex; align-items: flex-end; margin-top: 8px;">
+                                                        <span style="margin-right: 5px; color: #444;">C.C</span>
+                                                        <input type="text" style="flex-grow: 1; border: none; border-bottom: 1px dotted #999; background: transparent; font-size: 11px; outline: none; padding: 0; width: auto; margin-top: 0; text-align: left;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </td>
             </tr>
@@ -481,54 +507,26 @@
 </div>
 
 <script>
-    // Establecer fecha actual por defecto (datetime-local)
+    // Establecer fecha actual
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     document.getElementById('fecha-hoy').value = now.toISOString().slice(0,16);
 
-    // Formateador de Abscisas K0+000,00
-    function formatearAbscisa(input) {
-        let val = input.value.trim().toUpperCase();
-        if (!val) return;
-        if (val.includes('-')) {
-            let parts = val.split('-');
-            input.value = parseSingle(parts[0]) + ' - ' + parseSingle(parts[1]);
-        } else if (val.includes(' A ') || val.includes(' AL ')) {
-            let sep = val.includes(' AL ') ? ' AL ' : ' A ';
-            let parts = val.split(sep);
-            input.value = parseSingle(parts[0]) + sep.toLowerCase() + ' ' + parseSingle(parts[1]);
-        } else {
-            input.value = parseSingle(val);
-        }
-    }
-    
-    function parseSingle(val) {
-        let cleanVal = val.replace(/K/gi, '').replace(/\+/g, '').replace(/,/g, '.').replace(/\s/g, '');
-        let num = parseFloat(cleanVal);
-        if (isNaN(num)) return val.trim();
-        let km = Math.floor(num / 1000);
-        let mts = num % 1000;
-        let mtsFormat = (mts % 1 !== 0) ? mts.toFixed(2) : mts.toFixed(2);
-        mtsFormat = mtsFormat.padStart(6, '0').replace('.', ',');
-        return `K${km}+${mtsFormat}`;
-    }
-
-    // Carga de Logos (Oculta el texto al cargar la imagen)
-    function loadLogo(input, imgId, txtId) {
+    // Carga de Logos manual (ocultando el label)
+    function loadLogo(input, imgId) {
         if (input.files && input.files[0]) {
             const reader = new FileReader();
             reader.onload = function(e) {
                 const img = document.getElementById(imgId);
-                const txt = document.getElementById(txtId);
                 img.src = e.target.result;
                 img.style.display = 'block';
-                if(txt) txt.style.display = 'none'; 
+                input.parentElement.style.display = 'none'; // Oculta el label con el texto
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-    // Carga múltiple de fotos desde Galería o Cámara con compresión (Móvil)
+    // Carga múltiple de fotos con prevención de borrado accidental
     function handleFiles(input) {
         const gallery = input.parentElement.nextElementSibling;
         
@@ -536,49 +534,29 @@
             Array.from(input.files).forEach(file => {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    const imgOriginal = new Image();
-                    imgOriginal.src = e.target.result;
-                    imgOriginal.onload = function() {
-                        const canvas = document.createElement('canvas');
-                        const MAX_DIM = 800; // Compresión
-                        let width = imgOriginal.width; let height = imgOriginal.height;
-                        if (width > height) { if (width > MAX_DIM) { height *= MAX_DIM / width; width = MAX_DIM; } } 
-                        else { if (height > MAX_DIM) { width *= MAX_DIM / height; height = MAX_DIM; } }
-                        canvas.width = width; canvas.height = height;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(imgOriginal, 0, 0, width, height);
-                        
-                        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.6);
-                        
-                        const img = document.createElement('img');
-                        img.src = compressedDataUrl;
-                        img.title = "Toca para eliminar";
-                        
-                        // Al tocar la imagen (móvil) o hacer click (PC), se elimina previo aviso
-                        img.onclick = function() {
-                            if(confirm("¿Deseas eliminar esta fotografía del registro?")) {
-                                this.remove();
-                            }
-                        };
-                        gallery.appendChild(img);
-                    }
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.title = "Toca para eliminar";
+                    
+                    img.onclick = function() {
+                        if(confirm("¿Deseas eliminar esta evidencia fotográfica?")) {
+                            this.remove();
+                        }
+                    };
+                    gallery.appendChild(img);
                 }
                 reader.readAsDataURL(file);
             });
         }
-        input.value = ""; // Limpiar input para permitir seleccionar la misma u otras fotos luego
+        input.value = ""; 
     }
 
-    // Sistema de Semáforo para el Estado de cumplimiento
+    // Semáforo de estados
     function changeColor(selectElement) {
         selectElement.classList.remove('status-cumple', 'status-nocumple', 'status-na');
-        if (selectElement.value === 'cumple') {
-            selectElement.classList.add('status-cumple');
-        } else if (selectElement.value === 'nocumple') {
-            selectElement.classList.add('status-nocumple');
-        } else if (selectElement.value === 'na') {
-            selectElement.classList.add('status-na');
-        }
+        if (selectElement.value === 'cumple') selectElement.classList.add('status-cumple');
+        else if (selectElement.value === 'nocumple') selectElement.classList.add('status-nocumple');
+        else if (selectElement.value === 'na') selectElement.classList.add('status-na');
     }
 
     // Guardar datos en formato .json
@@ -598,7 +576,7 @@
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `acta_auditoria_pmt.${extension}`;
+        a.download = `acta_ambiental.${extension}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -654,17 +632,18 @@
                     }
                 });
                 
+                // Carga de Logos
                 if(data.logo1) {
                     const l1 = document.getElementById('logo1');
                     l1.src = data.logo1;
                     l1.style.display = 'block';
-                    if(document.getElementById('txt-logo1')) document.getElementById('txt-logo1').style.display = 'none';
+                    if(l1.nextElementSibling) l1.nextElementSibling.style.display = 'none';
                 }
                 if(data.logo2) {
                     const l2 = document.getElementById('logo2');
                     l2.src = data.logo2;
                     l2.style.display = 'block';
-                    if(document.getElementById('txt-logo2')) document.getElementById('txt-logo2').style.display = 'none';
+                    if(l2.nextElementSibling) l2.nextElementSibling.style.display = 'none';
                 }
                 
                 showToast("Datos cargados correctamente", "success");
@@ -683,30 +662,71 @@
         toast.className = `toast ${type}`;
         toast.innerText = message;
         container.appendChild(toast);
-        
-        // Trigger reflow & show
         setTimeout(() => toast.classList.add('show'), 10);
-        
         setTimeout(() => {
             toast.classList.remove('show');
             setTimeout(() => toast.remove(), 300);
         }, 3000);
     }
 
-    // Service Worker Registration for PWA
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').then(registration => {
-          console.log('SW registered:', registration.scope);
-        }).catch(error => {
-          console.log('SW registration failed:', error);
+    // Limpieza manual total
+    function limpiarTodo() {
+        if(!confirm('¿Estás seguro de que deseas borrar todos los datos, firmas y fotos del formulario?')) return;
+        
+        document.querySelectorAll('input[type="text"], textarea').forEach(i => i.value = '');
+        
+        document.querySelectorAll('select').forEach(s => {
+            s.value = '';
+            s.className = 'status-select';
         });
-      });
+
+        document.querySelectorAll('.image-gallery').forEach(g => g.innerHTML = '');
+        
+        // Restaurar logos base
+        document.getElementById('logo1').src = 'logo_entidad.png';
+        document.getElementById('logo1').style.display = 'block';
+        document.getElementById('logo1').nextElementSibling.style.display = 'none';
+        
+        document.getElementById('logo2').src = 'logo_gsc.png';
+        document.getElementById('logo2').style.display = 'block';
+        document.getElementById('logo2').nextElementSibling.style.display = 'none';
+        
+        // Limpiar firmas
+        document.querySelectorAll('.firma-img').forEach(img => {
+            img.src = '';
+            img.style.display = 'none';
+        });
+
+        showToast('El formulario ha sido limpiado correctamente.', 'info');
     }
 
-    // =======================================================================
+    // Formateador de Abscisas
+    function formatearAbscisa(input) {
+        let val = input.value.trim().toUpperCase();
+        if (!val) return;
+        if (val.includes('-')) {
+            let parts = val.split('-');
+            input.value = parseSingle(parts[0]) + ' - ' + parseSingle(parts[1]);
+        } else if (val.includes(' A ')) {
+            let parts = val.split(' A ');
+            input.value = parseSingle(parts[0]) + ' a ' + parseSingle(parts[1]);
+        } else {
+            input.value = parseSingle(val);
+        }
+    }
+    
+    function parseSingle(val) {
+        let cleanVal = val.replace(/K/gi, '').replace(/\+/g, '').replace(/,/g, '.').replace(/\s/g, '');
+        let num = parseFloat(cleanVal);
+        if (isNaN(num)) return val.trim();
+        let km = Math.floor(num / 1000);
+        let mts = num % 1000;
+        let mtsFormat = (mts % 1 !== 0) ? mts.toFixed(2) : mts.toFixed(2);
+        mtsFormat = mtsFormat.padStart(6, '0').replace('.', ',');
+        return `K${km}+${mtsFormat}`;
+    }
+
     // MOTOR DE FIRMAS CANVA
-    // =======================================================================
     let sigCanvas, sigCtx, drawing = false, activeFirmaId = null;
 
     window.addEventListener('load', () => {
@@ -725,12 +745,10 @@
     function drawSig(e) {
         if (!drawing) return;
         let rect = sigCanvas.getBoundingClientRect();
-        
         let clientX = e.clientX; let clientY = e.clientY;
         if(e.touches && e.touches.length > 0) {
             clientX = e.touches[0].clientX; clientY = e.touches[0].clientY;
         }
-
         sigCtx.lineTo(clientX - rect.left, clientY - rect.top);
         sigCtx.stroke(); sigCtx.beginPath(); sigCtx.moveTo(clientX - rect.left, clientY - rect.top);
     }
